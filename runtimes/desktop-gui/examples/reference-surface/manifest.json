@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "scene": "reference-surface",
+  "profile": {
+    "bundleID": "com.example.placeholder",
+    "ownerNames": ["PlaceholderApp"],
+    "appLabel": "PlaceholderApp"
+  },
+  "intents": {
+    "openTarget": {
+      "required": ["x", "y"],
+      "defaults": { "mode": "cliclick", "coordinateSpace": "windowTopLeft", "restoreMouse": true, "dryRun": false },
+      "steps": [
+        {
+          "type": "click",
+          "fields": {
+            "x": "${x}",
+            "y": "${y}",
+            "button": "left",
+            "coordinateSpace": "${coordinateSpace}",
+            "mode": "${mode}",
+            "restoreMouse": "${restoreMouse}"
+          }
+        }
+      ]
+    },
+    "openTargetCapture": {
+      "required": ["x", "y", "output"],
+      "defaults": { "mode": "hid", "coordinateSpace": "windowTopLeft", "restoreMouse": true, "durationMs": 300, "maxEdge": 760, "dryRun": false },
+      "steps": [
+        {
+          "type": "click",
+          "fields": {
+            "x": "${x}",
+            "y": "${y}",
+            "button": "left",
+            "coordinateSpace": "${coordinateSpace}",
+            "mode": "${mode}",
+            "restoreMouse": "${restoreMouse}"
+          }
+        },
+        { "type": "wait", "fields": { "durationMs": "${durationMs}" } },
+        { "type": "screenshot", "fields": { "output": "${output}", "maxEdge": "${maxEdge}" } }
+      ]
+    },
+    "captureRegion": {
+      "required": ["x", "y", "width", "height", "output"],
+      "defaults": { "maxEdge": 640, "dryRun": false },
+      "steps": [
+        {
+          "type": "screenshot",
+          "fields": {
+            "x": "${x}",
+            "y": "${y}",
+            "width": "${width}",
+            "height": "${height}",
+            "output": "${output}",
+            "maxEdge": "${maxEdge}"
+          }
+        }
+      ]
+    },
+    "scrollRegion": {
+      "required": ["x", "y", "scrollY"],
+      "defaults": { "mode": "hid", "dryRun": false },
+      "steps": [
+        { "type": "scroll", "fields": { "x": "${x}", "y": "${y}", "scrollY": "${scrollY}", "mode": "${mode}" } }
+      ]
+    },
+    "closeOverlay": {
+      "required": [],
+      "defaults": { "mode": "hid", "dryRun": false },
+      "steps": [
+        { "type": "keypress", "fields": { "keys": ["ESC"], "mode": "${mode}" } }
+      ]
+    }
+  }
+}
