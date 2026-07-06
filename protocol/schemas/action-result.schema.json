@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cloudsbeyond.github.io/visual-agent/protocol/schemas/action-result.schema.json",
+  "title": "ActionResult",
+  "description": "L1 runtime result. ok:true means runtime dispatch/completion only, never task success.",
+  "type": "object",
+  "required": ["ok", "kind", "results"],
+  "properties": {
+    "ok": { "const": true },
+    "kind": { "const": "action_result" },
+    "wireFormat": { "type": "string" },
+    "call_id": { "type": "string" },
+    "dryRun": { "type": "boolean" },
+    "results": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["index", "ok", "type", "dryRun"],
+        "properties": {
+          "index": { "type": "integer", "minimum": 0 },
+          "ok": { "type": "boolean" },
+          "type": { "type": "string", "minLength": 1 },
+          "dryRun": { "type": "boolean" },
+          "appLabel": { "type": "string" },
+          "resolved": { "type": "object" },
+          "message": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cloudsbeyond.github.io/visual-agent/protocol/schemas/error-envelope.schema.json",
+  "title": "ErrorEnvelope",
+  "description": "Machine-readable failure envelope emitted by runtime entry points and adapters.",
+  "type": "object",
+  "required": ["ok", "kind", "reason", "message"],
+  "properties": {
+    "ok": { "const": false },
+    "kind": { "const": "error" },
+    "reason": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "message": {
+      "type": "string",
+      "minLength": 1
+    },
+    "call_id": { "type": "string" },
+    "pendingSafetyCheckCount": { "type": "integer", "minimum": 0 }
+  }
+}

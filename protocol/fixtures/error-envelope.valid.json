@@ -1,0 +1,8 @@
+{
+  "ok": false,
+  "kind": "error",
+  "reason": "pending_safety_approval",
+  "message": "pending_safety_checks require confirmationStatus=approved",
+  "call_id": "fixture_safety_gate",
+  "pendingSafetyCheckCount": 1
+}

@@ -161,6 +161,13 @@ bash scripts/smoke.sh
 Run from the repository root:
 
 ```bash
+bash scripts/verify-local.sh
+```
+
+Expanded runtime checks:
+
+```bash
+node scripts/verify-protocol-conformance.mjs
 swiftc -typecheck runtimes/desktop-gui/src/action_executor.swift
 swiftc -typecheck runtimes/desktop-gui/src/scene_runner.swift
 swiftc -typecheck runtimes/desktop-gui/src/task_flow.swift
@@ -168,6 +175,7 @@ bash runtimes/desktop-gui/scripts/smoke.sh
 ```
 
 Expected smoke result: `SMOKE_OK`.
+Pull requests run the same local gate through `../../.github/workflows/verify.yml`.
 
 ## Integration
 

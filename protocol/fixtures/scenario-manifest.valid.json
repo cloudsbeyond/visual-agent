@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "scene": "fixture-surface",
+  "profile": {
+    "bundleID": "com.example.placeholder",
+    "ownerNames": ["PlaceholderApp"],
+    "appLabel": "PlaceholderApp"
+  },
+  "intents": {
+    "closeOverlay": {
+      "required": [],
+      "defaults": { "mode": "hid", "dryRun": true },
+      "steps": [
+        { "type": "keypress", "fields": { "keys": ["ESC"], "mode": "${mode}" } }
+      ]
+    }
+  }
+}

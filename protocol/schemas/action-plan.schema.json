@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cloudsbeyond.github.io/visual-agent/protocol/schemas/action-plan.schema.json",
+  "title": "ActionPlan",
+  "description": "L1 ActionPlan consumed by the runtime capability executor.",
+  "type": "object",
+  "required": ["schemaVersion", "kind", "actions"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "kind": { "const": "action_plan" },
+    "wireFormat": { "type": "string" },
+    "call_id": { "type": "string", "minLength": 1 },
+    "status": { "type": "string" },
+    "pending_safety_checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "code": { "type": "string" },
+          "message": { "type": "string" }
+        }
+      }
+    },
+    "confirmationStatus": {
+      "type": "string",
+      "enum": ["not_required", "pending", "approved", "denied"]
+    },
+    "dryRun": { "type": "boolean" },
+    "bundleID": { "type": "string" },
+    "ownerNames": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "appLabel": { "type": "string" },
+    "allowNegativeWindowOrigin": { "type": "boolean" },
+    "actions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/action" }
+    }
+  },
+  "$defs": {
+    "action": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["click", "scroll", "keypress", "wait", "screenshot", "type", "drag", "move", "double_click"]
+        },
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "width": { "type": "number", "minimum": 0 },
+        "height": { "type": "number", "minimum": 0 },
+        "scrollX": { "type": "number" },
+        "scrollY": { "type": "number" },
+        "times": { "type": "integer", "minimum": 1 },
+        "button": { "type": "string" },
+        "keys": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "durationMs": { "type": "integer", "minimum": 0 },
+        "output": { "type": "string", "minLength": 1 },
+        "maxEdge": { "type": "integer", "minimum": 1 },
+        "mode": { "type": "string", "enum": ["cliclick", "hid", "pid"] },
+        "coordinateSpace": {
+          "type": "string",
+          "enum": ["windowTopLeft", "windowBottomLeft", "screenTopLeft", "screenBottomLeft"]
+        },
+        "restoreMouse": { "type": "boolean" },
+        "dryRun": { "type": "boolean" },
+        "allowNegativeWindowOrigin": { "type": "boolean" }
+      }
+    }
+  }
+}

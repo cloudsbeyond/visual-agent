@@ -120,6 +120,13 @@ Project-local coordination notes are ignored by Git and are not project source-o
 Run from the repository root when touching runtime or protocol behavior:
 
 ```bash
+bash scripts/verify-local.sh
+```
+
+The expanded core commands are:
+
+```bash
+node scripts/verify-protocol-conformance.mjs
 swiftc -typecheck runtimes/desktop-gui/src/action_executor.swift
 swiftc -typecheck runtimes/desktop-gui/src/scene_runner.swift
 swiftc -typecheck runtimes/desktop-gui/src/task_flow.swift
@@ -127,6 +134,7 @@ bash runtimes/desktop-gui/scripts/smoke.sh
 ```
 
 Expected smoke success: `SMOKE_OK`.
+Pull requests run the same local gate through `.github/workflows/verify.yml`.
 
 ## Spec Checkpoint
 

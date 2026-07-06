@@ -117,6 +117,14 @@ as adapters or forked projects.
 Run from the repository root:
 
 ```bash
+bash scripts/verify-local.sh
+```
+
+The script runs the protocol conformance checks, adapter syntax checks, desktop GUI runtime
+typechecks, shell syntax checks, and smoke test. The expanded core commands are:
+
+```bash
+node scripts/verify-protocol-conformance.mjs
 swiftc -typecheck runtimes/desktop-gui/src/action_executor.swift
 swiftc -typecheck runtimes/desktop-gui/src/scene_runner.swift
 swiftc -typecheck runtimes/desktop-gui/src/task_flow.swift
@@ -124,3 +132,4 @@ bash runtimes/desktop-gui/scripts/smoke.sh
 ```
 
 Expected smoke result: `SMOKE_OK`.
+Pull requests run the same local gate through `.github/workflows/verify.yml`.

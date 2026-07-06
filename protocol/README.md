@@ -29,6 +29,10 @@ documents:
     L1: protocol/L1-runtime-capability-manual.md
     L2: protocol/L2-surface-manual.md
     L3: protocol/L3-scenario-requirements.md
+  machine_verifiable_contracts:
+    schemas: protocol/schemas/
+    fixtures: protocol/fixtures/
+    local_check: node scripts/verify-protocol-conformance.mjs
   integration: integration/host-embedding.md
 runtime:
   desktop_gui_reference:
@@ -232,6 +236,19 @@ host_integration:
   Capabilities: { command: "action_executor capabilities", defined_in: "INT section 7" }
 ```
 
+Machine-verifiable schemas currently cover the first stable wire slice:
+
+- `protocol/schemas/action-plan.schema.json`
+- `protocol/schemas/action-result.schema.json`
+- `protocol/schemas/error-envelope.schema.json`
+- `protocol/schemas/scenario-manifest.schema.json`
+
+Fixtures under `protocol/fixtures/` provide one valid and one intentionally invalid example per
+object. Run `node scripts/verify-protocol-conformance.mjs` to check the fixtures, the current
+desktop GUI reference manifest, and runtime-backed negative cases for stable error-envelope
+reasons. These schemas verify current wire shapes; the prose protocol files remain authoritative
+for semantics, layer boundaries, and future extension rules.
+
 ## 5. Cross-Cutting Invariants
 
 These invariants bind the root contract, current reference specs, and runtime files.
@@ -313,6 +330,9 @@ playbooks:
       - "no model calls or task-success judgement entered runtime/adapters"
       - "binding-block citations still point to valid sections"
   run_checks:
+    local_gate: "bash scripts/verify-local.sh"
+    ci_gate: ".github/workflows/verify.yml"
+    conformance: "node scripts/verify-protocol-conformance.mjs"
     typecheck:
       - "swiftc -typecheck runtimes/desktop-gui/src/action_executor.swift"
       - "swiftc -typecheck runtimes/desktop-gui/src/scene_runner.swift"

@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "scene": "fixture-surface",
+  "profile": {},
+  "intents": {
+    "closeOverlay": {
+      "required": [],
+      "steps": []
+    }
+  }
+}

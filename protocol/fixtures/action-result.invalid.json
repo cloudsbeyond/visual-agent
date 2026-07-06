@@ -1,0 +1,7 @@
+{
+  "ok": false,
+  "kind": "action_result",
+  "results": [
+    { "ok": true, "type": "wait", "dryRun": true }
+  ]
+}

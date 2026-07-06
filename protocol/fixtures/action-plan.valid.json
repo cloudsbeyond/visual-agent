@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "kind": "action_plan",
+  "wireFormat": "openai_computer_call_compatible",
+  "call_id": "fixture_action_plan_valid",
+  "pending_safety_checks": [],
+  "confirmationStatus": "not_required",
+  "dryRun": true,
+  "allowNegativeWindowOrigin": false,
+  "actions": [
+    { "type": "keypress", "keys": ["ESC"], "mode": "hid" },
+    { "type": "wait", "durationMs": 1 }
+  ]
+}

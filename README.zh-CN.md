@@ -99,6 +99,14 @@ P0 定义为：
 在仓库根目录运行：
 
 ```bash
+bash scripts/verify-local.sh
+```
+
+这个脚本会执行协议 conformance、适配器语法检查、desktop GUI runtime typecheck、shell
+语法检查和 smoke。展开后的核心命令是：
+
+```bash
+node scripts/verify-protocol-conformance.mjs
 swiftc -typecheck runtimes/desktop-gui/src/action_executor.swift
 swiftc -typecheck runtimes/desktop-gui/src/scene_runner.swift
 swiftc -typecheck runtimes/desktop-gui/src/task_flow.swift
@@ -106,3 +114,4 @@ bash runtimes/desktop-gui/scripts/smoke.sh
 ```
 
 期望 smoke 输出：`SMOKE_OK`。
+Pull Request 会通过 `.github/workflows/verify.yml` 运行同一个本地 gate。
