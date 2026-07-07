@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "kind": "action_result",
+  "wireFormat": "openai_computer_call_result_compatible",
+  "call_id": "fixture_action_plan_valid",
+  "dryRun": true,
+  "results": [
+    { "index": 0, "ok": true, "type": "keypress", "dryRun": true, "appLabel": "target app" },
+    { "index": 1, "ok": true, "type": "wait", "dryRun": true, "appLabel": "target app" }
+  ]
+}
