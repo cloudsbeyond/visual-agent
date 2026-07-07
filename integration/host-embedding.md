@@ -1,6 +1,6 @@
 # Runtime Integration - Host Embedding Guide
 
-- Kind: Engineering integration spec (NOT a protocol layer)
+- Kind: Engineering integration guide (NOT a protocol layer)
 - Version: 1
 - Status: Normative for integration
 - Builds on: the visual-agent L0/L1/L2/L3 contract in `../protocol/` and

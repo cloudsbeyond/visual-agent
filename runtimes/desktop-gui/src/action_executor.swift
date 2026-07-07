@@ -18,15 +18,15 @@
 //   l0: ../../../protocol/L0-operational-surface-contract.md
 //   overview: ../../../protocol/README.md
 //   implements:
-//     - { symbol: TargetApp,                 spec_section: "L1 section 3 Desktop GUI Target Binding" }
-//     - { symbol: appObservation,            spec_section: "L1 section 4 AppObservation (desktop GUI reference)" }
-//     - { symbol: JSONActionPlan/runPlan,    spec_section: "L1 section 5 ActionPlan, section 11 ActionResult" }
-//     - { symbol: executeAction,             spec_section: "L1 section 6 Action Set" }
-//     - { symbol: eventPoint,                spec_section: "L1 section 7 Coordinate Spaces" }
-//     - { symbol: ensurePointerSafe/runPlan, spec_section: "L1 section 8 Safety Invariants" }
-//     - { symbol: postMouseSequence/postEsc/postScroll, spec_section: "L1 section 9 Backends" }
-//     - { symbol: visualStats/imageUsableForVision/captureTargetWindowImage, spec_section: "L1 section 10 Capture Usability" }
-//     - { symbol: "diagnose/observe/window/screens", spec_section: "L1 section 13 Diagnostics" }
+//     - { symbol: TargetApp,                 protocol_section: "L1 section 3 Desktop GUI Target Binding" }
+//     - { symbol: appObservation,            protocol_section: "L1 section 4 AppObservation (desktop GUI reference)" }
+//     - { symbol: JSONActionPlan/runPlan,    protocol_section: "L1 section 5 ActionPlan, section 11 ActionResult" }
+//     - { symbol: executeAction,             protocol_section: "L1 section 6 Action Set" }
+//     - { symbol: eventPoint,                protocol_section: "L1 section 7 Coordinate Spaces" }
+//     - { symbol: ensurePointerSafe/runPlan, protocol_section: "L1 section 8 Safety Invariants" }
+//     - { symbol: postMouseSequence/postEsc/postScroll, protocol_section: "L1 section 9 Backends" }
+//     - { symbol: visualStats/imageUsableForVision/captureTargetWindowImage, protocol_section: "L1 section 10 Capture Usability" }
+//     - { symbol: "diagnose/observe/window/screens", protocol_section: "L1 section 13 Diagnostics" }
 //   invariants:                     # see L1 section 14; violating these breaks the protocol
 //     - actions_executed_in_order
 //     - coordinates_default_windowTopLeft

@@ -18,8 +18,8 @@
 //   l0: ../../../protocol/L0-operational-surface-contract.md
 //   overview: ../../../protocol/README.md
 //   implements:
-//     - { symbol: loadProfile + --profile handling, spec_section: "L2 section 3 Surface Profile Binding (E1)" }
-//     - { symbol: process-delegation,               spec_section: "L2 section 2 Layer Boundaries (no L1 re-impl)" }
+//     - { symbol: loadProfile + --profile handling, protocol_section: "L2 section 3 Surface Profile Binding (E1)" }
+//     - { symbol: process-delegation,               protocol_section: "L2 section 2 Layer Boundaries (no L1 re-impl)" }
 //   delegates_to: ./action_executor.swift   # L1 executor; resolved as a sibling file
 //   externalized_to_surface_data:  # these L2 extension points live in profiles/manifests/docs, not here
 //     - "L2 section 4 Observed States (E2)"

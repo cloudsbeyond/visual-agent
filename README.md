@@ -9,6 +9,12 @@ what a concrete surface means, which actions are safe, and how success is verifi
 
 That structure is **visual-agent**.
 
+This `README.md` and [`README.zh-CN.md`](./README.zh-CN.md) are the public
+product narrative. [`PRD.md`](./PRD.md) is the fixed equivalent formal L0 projection:
+it compresses the same product intent and P0 scope before protocol layer
+documents, schemas, fixtures, runtime code, adapters, or integration guides are
+changed.
+
 ## The Problem
 
 Most computer-use, GUI automation, device-control, and embodied-control projects start from an
@@ -37,7 +43,8 @@ panels, appliance controls, instrument displays, and simple embodied-control sur
 protocol is about operating the surface. Full robotics, navigation, grasping, force control, and
 world modeling are outside P0.
 
-This is the protocol's **L0: Operational Surface Contract**. L0 defines what kind of visible
+Within the protocol layer, this is the **L0: Operational Surface Contract**. It is downstream of
+the product-intent L0 in the public narrative and `PRD.md`, and defines what kind of visible
 interface can enter the visual-agent loop before any runtime action, surface manual, or scenario
 manifest is considered.
 

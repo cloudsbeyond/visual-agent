@@ -99,7 +99,7 @@ runtimes/desktop-gui/
 ## Agent-Facing Documents
 
 - `../../protocol/README.md` is the agent-facing protocol map. It connects the root contract to
-  L0/L1/L2/L3 specs, runtime files, examples, integration docs, adapters, and invariants.
+  L0/L1/L2/L3 protocol documents, runtime files, examples, integration docs, adapters, and invariants.
 - Each `src/*.swift` file has an `AGENT BINDING BLOCK` that points code symbols to protocol
   sections. Runtime files cite protocol sections; the protocol is not derived from code.
 
