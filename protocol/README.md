@@ -3,9 +3,10 @@
 - Audience: AI agents (planners, code editors, reviewers). For humans, start at `../README.md`.
 - Status: Normative map for the current tracked public surface.
 - Reading mode: this file fuses prose with YAML so agents can orient quickly.
-- Authority rule: the root files (`AGENTS.md`, `README.md`, `README.zh-CN.md`) define public
-  positioning and P0 scope. Per-layer protocol files define current desktop GUI reference-runtime
-  behavior.
+- Authority rule: the root files (`AGENTS.md`, `README.md`, `README.zh-CN.md`, `PRD.md`) define
+  product intent. `README.md` and `README.zh-CN.md` carry the public product narrative, while
+  `PRD.md` carries the equivalent formal L0 projection. Per-layer protocol files define current
+  desktop GUI reference-runtime behavior.
 
 ## 0. What This Document Is For
 
@@ -21,10 +22,11 @@ not make the desktop GUI runtime the product boundary.
 documents:
   root_contract:
     - AGENTS.md
+    - PRD.md
     - README.md
     - README.zh-CN.md
   overview: protocol/README.md
-  protocol_specs:
+  protocol_layer_docs:
     L0: protocol/L0-operational-surface-contract.md
     L1: protocol/L1-runtime-capability-manual.md
     L2: protocol/L2-surface-manual.md
@@ -46,7 +48,7 @@ adapters:
 reference_rule:
   direction: runtime --> protocols
   on_scope_conflict: "root contract wins for product boundary and P0 scope"
-  on_runtime_behavior_conflict: "protocol spec wins over code; update spec first, then code"
+  on_runtime_behavior_conflict: "update the relevant protocol layer document before changing observable runtime behavior"
 ```
 
 ## 1. L0-L3 Layer Map
@@ -78,7 +80,7 @@ layers:
       - task intent expansion
       - robotics navigation/grasping/force/world modeling
     authority: root_contract
-    spec: protocol/L0-operational-surface-contract.md
+    layer_doc: protocol/L0-operational-surface-contract.md
   L1:
     name: Runtime Capability Manual
     manual: runtime-capability-manual
@@ -92,7 +94,7 @@ layers:
       - operational surface semantics
       - business/task judgement
       - scenario state
-    current_reference_spec: L1
+    current_reference_doc: L1
   L2:
     name: Surface Manual
     manual: surface-manual
@@ -107,7 +109,7 @@ layers:
       - reimplementing L1 mechanics
       - task aggregation/reporting
       - raw event dispatch
-    current_reference_spec: L2
+    current_reference_doc: L2
   L3:
     name: Scenario Requirements
     manual: scenario-requirements
@@ -122,7 +124,7 @@ layers:
       - raw pointer/device/actuator events
       - runtime coordinate arithmetic as task logic
       - deciding task success without fresh observation
-    current_reference_spec: L3
+    current_reference_doc: L3
 ```
 
 ## 2. Desktop GUI Reference Runtime Bridge
@@ -251,7 +253,7 @@ for semantics, layer boundaries, and future extension rules.
 
 ## 5. Cross-Cutting Invariants
 
-These invariants bind the root contract, current reference specs, and runtime files.
+These invariants bind the root contract, current reference layer documents, and runtime files.
 
 ```yaml
 invariants:
@@ -320,7 +322,7 @@ playbooks:
       - "if collecting data: add normalization + anonymization"
       - "validate every intent with task_flow --manifest <manifest> preview-json"
   edit_runtime_code:
-    before: "read the file's AGENT BINDING BLOCK and locate cited spec sections"
+    before: "read the file's AGENT BINDING BLOCK and locate cited protocol sections"
     rule: "if a change alters observable behavior, update the protocol section first, then code"
     never: "make the protocol merely describe current code"
   review_change:

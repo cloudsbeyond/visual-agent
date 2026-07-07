@@ -18,11 +18,11 @@
 //   l0: ../../../protocol/L0-operational-surface-contract.md
 //   overview: ../../../protocol/README.md
 //   implements:
-//     - { symbol: loadManifest,            spec_section: "L3 section 7 Scenario Manifest (E4)" }
-//     - { symbol: resolvedIntentFields,    spec_section: "L3 section 6 State Persistence and Merge Rules" }
-//     - { symbol: "substitute/buildActions", spec_section: "L3 section 4 Action-Step Templates (E2)" }
-//     - { symbol: actionPlan,              spec_section: "L3 section 3 Intent Set, section 10 Invariants" }
-//     - { symbol: executePlan,             spec_section: "L3 section 2 Layer Boundary (delegate, no raw events)" }
+//     - { symbol: loadManifest,            protocol_section: "L3 section 7 Scenario Manifest (E4)" }
+//     - { symbol: resolvedIntentFields,    protocol_section: "L3 section 6 State Persistence and Merge Rules" }
+//     - { symbol: "substitute/buildActions", protocol_section: "L3 section 4 Action-Step Templates (E2)" }
+//     - { symbol: actionPlan,              protocol_section: "L3 section 3 Intent Set, section 10 Invariants" }
+//     - { symbol: executePlan,             protocol_section: "L3 section 2 Layer Boundary (delegate, no raw events)" }
 //   delegates_to: ./action_executor.swift  # L1 executor; resolved as a sibling file
 //   not_implemented_here:          # conditional L3 extension points realized by the scenario, not the engine
 //     - "L3 section 5 Field/Normalization Conventions (E3)"   # data-collecting scenarios add their own tooling

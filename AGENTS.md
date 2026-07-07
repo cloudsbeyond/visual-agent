@@ -22,9 +22,10 @@ agent, planner, model adapter, or robotics stack.
 An **Operational Surface** is any bounded interface that can be observed, acted on through
 declared runtime capabilities, and verified by a fresh observation. It may be a software GUI,
 browser page, mobile screen, native app window, device panel, appliance control surface, or a
-simple embodied-control surface. This is the protocol's **L0**: it defines what kind of object can
-enter the visual-agent loop. The P0 contract covers the surface operation layer, not full robotics,
-navigation, manipulation, or world modeling.
+simple embodied-control surface. This is the protocol layer's **L0**, downstream of the
+product-intent L0 in `README.md`, `README.zh-CN.md`, and `PRD.md`: it defines what kind of object
+can enter the visual-agent loop. The P0 contract covers the surface operation layer, not full
+robotics, navigation, manipulation, or world modeling.
 
 ## Narrative Rule
 
@@ -80,13 +81,37 @@ contract.
 
 ## Source Of Truth
 
-The current documentation authority chain has exactly three files:
+The current documentation authority chain has exactly four files:
 
 1. `AGENTS.md` - build charter for agents.
 2. `README.md` - public English thesis and product narrative.
 3. `README.zh-CN.md` - public Chinese thesis and product narrative.
+4. `PRD.md` - equivalent formal L0 projection, P0 scope, non-goals, downstream chain and owner boundary.
 
 No other file is currently authoritative for public positioning, architecture, or product scope.
+Protocol layer documents, schemas, fixtures, runtimes, examples and adapters are downstream
+contract/manual assets under this root authority; they are not independent product authorities.
+
+## Formal Development Flow
+
+Use this in-repo L0-L4 chain as the portable development contract. Do not
+drive durable protocol or runtime changes from repo-external process notes alone.
+The protocol layer has its own L0-L3 terms, but those terms are downstream of
+root product-intent L0:
+
+```text
+README.md / README.zh-CN.md / PRD.md
+  -> AGENTS.md
+  -> protocol layer documents
+  -> schemas + fixtures + conformance checks
+  -> runtimes/desktop-gui + adapters + examples
+  -> scripts/verify-local.sh evidence
+```
+
+- Product L0: `README.md`, `README.zh-CN.md`, and `PRD.md` define why visual-agent exists, P0 scope, non-goals, and owner boundary.
+- Protocol L1/L2: protocol documents, schemas, fixtures, and conformance checks define the verifiable surface-operation contract.
+- L3: runtime code, adapters, examples, manifests, and repo commands realize the protocol under the product boundary.
+- L4: protocol conformance, Swift typecheck, shell syntax, smoke checks, and `VERIFY_LOCAL_OK` provide validation evidence; `ActionResult.ok == true` and passing local checks do not prove task success or product acceptance.
 
 ## Open-Source Surface
 
@@ -155,5 +180,5 @@ Needs confirmation:
 - <small number of decisions>
 ```
 
-Do not expand P1/P2 into P0. Do not rewrite the three-file root contract without explicit user
+Do not expand P1/P2 into P0. Do not rewrite the four-file root contract without explicit user
 approval.
